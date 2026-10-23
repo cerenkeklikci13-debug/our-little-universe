@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Little Universe ✨</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: radial-gradient(ellipse at top, #29254d, #101020 75%);
+  color: #fff3e6; font-family: Georgia, serif;
+  text-align: center; padding: 35px 18px;
+}
+h1 { font-size: clamp(32px, 7vw, 55px); font-weight: normal; }
+p { line-height: 1.8; }
+.stars {
+  display: flex; justify-content: center;
+  flex-wrap: wrap; gap: 16px; margin: 45px auto;
+  max-width: 500px;
+}
+button {
+  cursor: pointer; border: 1px solid #aaa1d0;
+  background: #302b51; color: #fff3e6;
+  border-radius: 16px; padding: 16px;
+  font: inherit; font-size: 16px;
+}
+button:hover { background: #514570; }
+#message {
+  display: none; max-width: 500px; margin: auto;
+  padding: 24px; border-radius: 20px;
+  background: #ffffff12; line-height: 1.9;
+}
+.small { color: #c9bfeb; }
+</style>
+</head>
+<body>
+<p class="small">A LITTLE UNIVERSE OF US</p>
+<h1>Senin için bir evren yaptım ✨</h1>
+<p>Her yıldızın içinde sana ait bir şey var.</p>
+
+<div class="stars">
+  <button onclick="openMemory(0)">✦ İlk yıldız</button>
+  <button onclick="openMemory(1)">✧ İkinci yıldız</button>
+  <button onclick="openMemory(2)">✦ Üçüncü yıldız</button>
+  <button onclick="openMemory(3)">♡ Gizli yıldız</button>
+</div>
+
+<div id="message" aria-live="polite"></div>
+
+<script>
+const memories = [
+  ["Bir anımız", "Buraya asla unutmak istemediğin ortak bir anınızı yaz."],
+  ["Sende sevdiğim şey", "Buraya yalnızca ona özgü bir özelliği yaz."],
+  ["Bizim sırrımız", "Buraya ikinizin anlayacağı bir şaka veya cümle yaz."],
+  ["Sana söylemek istediğim", "İyi ki doğdun. Hayatında olduğum için ne kadar mutlu olduğumu bilmeni istiyorum. Seni seviyorum. ♡"]
+];
+
+function openMemory(index) {
+  const box = document.getElementById("message");
+  box.style.display = "block";
+  box.innerHTML = "<h2>" + memories[index][0] +
+    "</h2><p>" + memories[index][1] + "</p>";
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+</script>
+</body>
+</html>
+SSSS
