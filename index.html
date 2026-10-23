@@ -5,32 +5,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Little Universe ✨</title>
+
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0; min-height: 100vh;
-  background: radial-gradient(ellipse at top, #29254d, #101020 75%);
-  color: #fff3e6; font-family: Georgia, serif;
-  text-align: center; padding: 35px 18px;
+* {
+  box-sizing: border-box;
 }
-h1 { font-size: clamp(32px, 7vw, 55px); font-weight: normal; }
-p { line-height: 1.8; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #29254d, #101020 75%);
+  color: #fff3e6;
+  font-family: Georgia, serif;
+  text-align: center;
+  padding: 35px 18px;
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 55px);
+  font-weight: normal;
+}
+
+p {
+  line-height: 1.8;
+}
+
 .stars {
-  display: flex; justify-content: center;
-  flex-wrap: wrap; gap: 16px; margin: 45px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 45px auto;
   max-width: 500px;
 }
+
 button {
-  cursor: pointer; border: 1px solid #aaa1d0;
-  background: #302b51; color: #fff3e6;
-  border-radius: 16px; padding: 16px;
-  font: inherit; font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #aaa1d0;
+  background: #302b51;
+  color: #fff3e6;
+  border-radius: 16px;
+  padding: 16px;
+  font: inherit;
+  font-size: 16px;
 }
-button:hover { background: #514570; }
+
+button:hover {
+  background: #514570;
+}
+
 #message {
-  display: none; max-width: 500px; margin: auto;
-  padding: 24px; border-radius: 20px;
-  background: #ffffff12; line-height: 1.9;
+  display: none;
+  max-width: 600px;
+  margin: 25px auto;
+  padding: 24px;
+  border-radius: 20px;
+  background: #ffffff12;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
 
 .photo-pair {
   display: flex;
@@ -42,6 +75,7 @@ button:hover { background: #514570; }
 }
 
 .photo-pair img {
+  display: block;
   width: 45%;
   height: 280px;
   object-fit: cover;
@@ -50,22 +84,36 @@ button:hover { background: #514570; }
   box-shadow: 0 0 20px #aaa1d033;
 }
 
+.small {
+  color: #c9bfeb;
+}
+
 @media (max-width: 500px) {
+  body {
+    padding: 25px 12px;
+  }
+
   .photo-pair {
     gap: 10px;
   }
+
   .photo-pair img {
     height: 190px;
   }
+
+  button {
+    padding: 12px;
+  }
 }
-  
-}
-.small { color: #c9bfeb; }
 </style>
 </head>
+
 <body>
+
 <p class="small">A LITTLE UNIVERSE OF US</p>
+
 <h1>Senin için bir evren yaptım ✨</h1>
+
 <p>Her yıldızın içinde sana ait bir şey var.</p>
 
 <div class="stars">
@@ -77,25 +125,50 @@ button:hover { background: #514570; }
 
 <div id="message" aria-live="polite"></div>
 
+<!-- FOTOĞRAFLAR -->
+<div class="photo-pair">
+  <img src="./kirmizi.jpeg" alt="Birlikte güzel bir anımız">
+  <img src="./siyah.jpeg" alt="Bir başka güzel anımız">
+</div>
+
 <script>
 const memories = [
-  ["hic unutmak istemediğim bir anımız <33 ", "bunun cevabı kesinlikle tanistigimiz gece olurdu..seni, sacin basin daginik ve uyku mahmuru gördügüm ilk o an..hayatımda gördügüm en güzel seydin..porsuk kıyısında otururken kacamak bakislarla seni izliyordum.hava öyle güzel ve romantikti ki.sakalasmalarimiz, utangac flortlesmelerimiz...sana vurulduguma emindim, simdi uzagindayken bile yagmur damlaları o gecedeki gibi dokunuyor tenime her seferinde, sevgin beni sardıkca."],
-  ["sevgilimin en sevdigim özellikleri", "buraya sıgması ve benim balık hafızamla hepsini yazmamın mumkun olmadigi olay. ama denicem askim. ilk once ellerine, isil isil gözlerine vurulmustum seni ilk tanigimda..gözlerin öyle canliydi ki baktikca her seyden soyutlanıyordum. kokun bebek gibi, öyle zarif ve asilsin ki sana bakmaktan kendimi alamıyorum. tum bunlarin yaninda!! sevildigimi, degerli oldugumu oyle guzel hissediyorum ki seninle. boyle guzel bir kadini sevmenin yaninda bi de o da beni seviyo NE!?!?!! ayrıca dürüstlügünü, inceligini, nahif kalbini, sevdigin seyleri coskuyla tadisini, omurgali durusunu, fikirlerini seni sen yapan her detayi cok seviyorum. sevgilim = powerpuff girls'te dunyanin en guzel herrr seyi eklenerek yaratilmis benim minik buttercup'im <333 "],
-  ["bizim en büyük sırrımız", "bizde ogrenilen herr dedikodu ve herrr olay aninda esimize anlatildigi icin sirrimiz yoktur ve bizim en derin sirlarimiz sadece birbirimizdedir. ama vermemizin mumkun olmadigi bir sir var!! nasil böyle asik oldugumuz..maalesef cocuklar siz de esimle benim gibi perfect matchinizi bulamadiginiz sürece anlamaniz mumkun degil..bu kadin hayali cicek verdi first dateimizde direkt aldim yahu!!"],
-  ["cerez tabaginda kalan son fistigim <333 buraya da tikla bakalim!!", "iyi ki doğdun sevgilim. hayatımda olduğun için öyle mutluyum ki. bu seferlik yaninda olamasam da en yakin zamanda kendi evimizde kutlayacagimizi biliyorum. gec olsun gerekirse guc de olsun ama senle olsun canimin ici. gözlerimi doldu kacmam gerek simdi. sana cok asigim. iyi ki benimsin. nice mutlu yaslara sevgilim :') ♡"]
+  [
+    "hic unutmak istemediğim bir anımız <33 ",
+    "bunun cevabı kesinlikle tanistigimiz gece olurdu..seni, sacin basin daginik ve uyku mahmuru gördügüm ilk o an..hayatımda gördügüm en güzel seydin..porsuk kıyısında otururken kacamak bakislarla seni izliyordum.hava öyle güzel ve romantikti ki.sakalasmalarimiz, utangac flortlesmelerimiz...sana vurulduguma emindim, simdi uzagindayken bile yagmur damlaları o gecedeki gibi dokunuyor tenime her seferinde, sevgin beni sardıkca."
+  ],
+  [
+    "sevgilimin en sevdigim özellikleri",
+    "buraya sıgması ve benim balık hafızamla hepsini yazmamın mumkun olmadigi olay. ama denicem askim. ilk once ellerine, isil isil gözlerine vurulmustum seni ilk tanigimda..gözlerin öyle canliydi ki baktikca her seyden soyutlanıyordum. kokun bebek gibi, öyle zarif ve asilsin ki sana bakmaktan kendimi alamıyorum. tum bunlarin yaninda!! sevildigimi, degerli oldugumu oyle guzel hissediyorum ki seninle. boyle guzel bir kadini sevmenin yaninda bi de o da beni seviyo NE!?!?!! ayrıca dürüstlügünü, inceligini, nahif kalbini, sevdigin seyleri coskuyla tadisini, omurgali durusunu, fikirlerini seni sen yapan her detayi cok seviyorum. sevgilim = powerpuff girls'te dunyanin en guzel herrr seyi eklenerek yaratilmis benim minik buttercup'im <333 "
+  ],
+  [
+    "bizim en büyük sırrımız",
+    "bizde ogrenilen herr dedikodu ve herrr olay aninda esimize anlatildigi icin sirrimiz yoktur ve bizim en derin sirlarimiz sadece birbirimizdedir. ama vermemizin mumkun olmadigi bir sir var!! nasil böyle asik oldugumuz..maalesef cocuklar siz de esimle benim gibi perfect matchinizi bulamadiginiz sürece anlamaniz mumkun degil..bu kadin hayali cicek verdi first dateimizde direkt aldim yahu!!"
+  ],
+  [
+    "cerez tabaginda kalan son fistigim <333 buraya da tikla bakalim!!",
+    "iyi ki doğdun sevgilim. hayatımda olduğun için öyle mutluyum ki. bu seferlik yaninda olamasam da en yakin zamanda kendi evimizde kutlayacagimizi biliyorum. gec olsun gerekirse guc de olsun ama senle olsun canimin ici. gözlerimi doldu kacmam gerek simdi. sana cok asigim. iyi ki benimsin. nice mutlu yaslara sevgilim :') ♡"
+  ]
 ];
 
 function openMemory(index) {
   const box = document.getElementById("message");
+
   box.style.display = "block";
-  box.innerHTML = "<h2>" + memories[index][0] +
-    "</h2><p>" + memories[index][1] + "</p>";
-  box.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  const heading = document.createElement("h2");
+  heading.textContent = memories[index][0];
+
+  const paragraph = document.createElement("p");
+  paragraph.textContent = memories[index][1];
+
+  box.replaceChildren(heading, paragraph);
+  box.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 }
 </script>
+
 </body>
 </html>
-<div class="photo-pair">
-  <img src="İndirilenler/kirmizi.jpeg" alt="Birlikte güzel bir anımız">
-  <img src="İndirilenler/siyah.jpeg" alt="Bir başka güzel anımız">
-</div>
